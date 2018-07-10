@@ -136,6 +136,7 @@ public:
 
         vSeeds.push_back(CDNSSeedData("0","178.33.208.181"));
         vSeeds.push_back(CDNSSeedData("1","124.187.81.212"));
+        vSeeds.push_back(CDNSSeedData("2","91.121.71.172"));
 
         convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
