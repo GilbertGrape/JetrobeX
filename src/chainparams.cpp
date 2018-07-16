@@ -57,9 +57,9 @@ public:
         // The message start string is designed to be unlikely to occur in normal data.
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
-        pchMessageStart[0] = 0x5f;
+        pchMessageStart[0] = 0x8f;
         pchMessageStart[1] = 0x6b;
-        pchMessageStart[2] = 0x8f;
+        pchMessageStart[2] = 0x5f;
         pchMessageStart[3] = 0xa1;
         vAlertPubKey = ParseHex("");
         nDefaultPort = 74746;
@@ -74,21 +74,21 @@ public:
         //    CTxIn(COutPoint(0000000000, 4294967295), coinbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
         //    CTxOut(empty)
         //  vMerkleTree: 12630d16a9
-        const char* pszTimestamp = "The Great Escape - All 12 Boys and their Coach have been Rescued from flooded Thai cave - 10th July 2018";
+        const char* pszTimestamp = "Controversial high-speed rail link to slash travel times between Hong Kong and China - 15th July 2018";
         std::vector<CTxIn> vin;
         vin.resize(1);
         vin[0].scriptSig = CScript() << 0 << CBigNum(42) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         std::vector<CTxOut> vout;
         vout.resize(1);
         vout[0].SetEmpty();
-        CTransaction txNew(1, 1531227178, vin, vout, 0);
+        CTransaction txNew(1, 1531629764, vin, vout, 0);
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime    = 1531227178;
+        genesis.nTime    = 1531629764;
         genesis.nBits    = 0x1f00ffff; 
-        genesis.nNonce   = 40037;
+        genesis.nNonce   = 16422;
 // uncomment to log genesis block info        
 //      //  start
 //        if (true && genesis.GetHash() != hashGenesisBlock)
@@ -124,8 +124,8 @@ public:
 //        //end
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x00009acbf0ec32e5a8da1455b3a9d52496c0f6ed6dc295e66d775fe677e4a5d3"));
-        assert(genesis.hashMerkleRoot == uint256("0x8b949456990fa1d92cd64829f4e34ae4f63cc5650736b9635a1c6a3f81902c6c"));
+        assert(hashGenesisBlock == uint256("0x0000b5d83e5a9c78260555b486762f8165e5a6a842a8e1d516192bacd649cba4"));
+        assert(genesis.hashMerkleRoot == uint256("0x3ff9e20d878e3c79ee93724a4ac4ef407b17dbc6076aa876e6bda6a908762417"));
                 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,43);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,85);
@@ -143,7 +143,7 @@ public:
         nPoolMaxTransactions = 3;
         //strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
         //strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
-        strDarksendPoolDummyAddress = "Jdy5etNKrP1fopQtbVBFgswdY4dcE9BVED";
+        strDarksendPoolDummyAddress = "Jry5etNKrP1fopQtbVBFgswdY4dcE9BVED";
         nLastPOWBlock = 17520000;
         nPOSStartBlock = 1;
     }
@@ -172,8 +172,8 @@ public:
         // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
         // a large 4-byte int at any alignment.
         pchMessageStart[0] = 0x6f;
-        pchMessageStart[1] = 0x9b;
-        pchMessageStart[2] = 0xa6;
+        pchMessageStart[1] = 0xa6;
+        pchMessageStart[2] = 0x9b;
         pchMessageStart[3] = 0xb1;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 16);
         vAlertPubKey = ParseHex("");
@@ -182,10 +182,10 @@ public:
         strDataDir = "testnet";
 
         // Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nBits  = 1531227178; 
-        genesis.nNonce = 40037;
+        genesis.nBits  = 1531629764; 
+        genesis.nNonce = 16422;
 
-        assert(hashGenesisBlock == uint256("0x00009acbf0ec32e5a8da1455b3a9d52496c0f6ed6dc295e66d775fe677e4a5d3"));
+        assert(hashGenesisBlock == uint256("0x0000b5d83e5a9c78260555b486762f8165e5a6a842a8e1d516192bacd649cba4"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
